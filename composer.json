@@ -1,0 +1,41 @@
+{
+  "name": "pagonychip/depcap",
+  "description": "Composer Dependency Control Panel (CDCP) is a simple web UI for managing your 'Satis' Repository for Composer packages.",
+  "authors" : [{
+    "name" : "Nagy Gergely",
+    "email" : "info@nagygergely.eu"
+  }
+  ],
+  "keywords": ["satis", "control panel", "composer"],
+  "license": "MIT",
+  "type": "project",
+  "require" : {
+    "php" : ">=5.4.0",
+    "league/glide": "^1.1",
+    "electrolinux/phpquery" : "^0.9.6",
+    "filp/whoops" : "1.1.3",
+    "phpmailer/phpmailer" : "dev-master",
+    "firephp/firephp-core" : "dev-master",
+    "fabfuel/prophiler" : "~1.0",
+    "mustache/mustache" : "dev-master",
+    "leafo/lessphp" : "0.4.0",
+    "geshi/geshi" : "dev-master",
+    "tedivm/jshrink" : "~1.0",
+    "matthiasmullie/minify" : "dev-master",
+    "openlss/lib-array2xml" : "dev-master",
+    "soundintheory/php-sql-parser" : "dev-master",
+    "egulias/email-validator" : "1.2.7",
+    "cbschuld/browser.php" : "dev-master",
+    "icanboogie/inflector": "^1.4",
+    "larapack/dd": "^1.1",
+    "rappasoft/laravel-helpers": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ComposerPack\\": ""
+    },
+    "files": [
+      "Helpers/extends.php"
+    ]
+  }
+}

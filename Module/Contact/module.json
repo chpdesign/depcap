@@ -1,0 +1,41 @@
+{
+  "name": "Kapcsolat",
+  "icon": "fa fa-question",
+  "action": "list",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu pretium leo. Mauris eu dolor pharetra, accumsan diam id, faucibus nisl. Aenean sodales tristique diam, volutpat venenatis tellus ornare sed. Sed felis augue, cursus ac pulvinar et, fringilla ut eros. Mauris finibus ultrices massa a luctus.",
+  "fields": {
+    "id": {
+      "type": "Input",
+      "name": "Id",
+      "id": true
+    },
+    "name": {
+      "type": "Input",
+      "name": "Név"
+    },
+    "email": {
+      "type": "Email",
+      "name": "Email cím"
+    },
+    "phone": {
+      "type": "Input",
+      "name": "Telefonszám"
+    },
+    "message": {
+      "type": "Textarea",
+      "name": "Üzenet"
+    },
+    "created_at": {
+      "type": "DateTime",
+      "name": "Készítve",
+      "visible": true,
+      "disabled": true
+    },
+    "modified_at": {
+      "type": "DateTime",
+      "name": "Módosítva",
+      "visible": true,
+      "disabled": true
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Statikus tartalmak",
+  "icon": "fa fa-file-text",
+  "action": "list",
+  "required": false,
+  "fields": {
+    "id": {
+      "type": "Input",
+      "name": "Id",
+      "id": true,
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "title": {
+      "type": "Input",
+      "translate": true,
+      "name": "Cím",
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "short": {
+      "type": "Editor",
+      "translate": true,
+      "name": "Rövid leírás",
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "long": {
+      "type": "Editor",
+      "translate": true,
+      "name": "Hosszú leírás",
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "poster": {
+      "type": "File",
+      "name": "Poszter",
+      "visible": [false, true]
+    },
+    "created_at": {
+      "type": "DateTime",
+      "name": "Készítve",
+      "visible": true,
+      "disabled": true
+    },
+    "modified_at": {
+      "type": "DateTime",
+      "name": "Módosítva",
+      "visible": true,
+      "disabled": true
+    }
+  }
+}

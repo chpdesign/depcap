@@ -1,0 +1,36 @@
+{
+  "name": "Felhasználók",
+  "icon": "fa fa-user",
+  "action": "list",
+  "author": "Pagony",
+  "required": true,
+  "fields": {
+    "id": {
+      "type": "Input",
+      "name": "Id",
+      "id": true
+    },
+    "email": {
+      "type": "Email",
+      "name": "Email cím"
+    },
+    "password": {
+      "type": "Input",
+      "name": "Jelszó",
+      "visible": [false, true],
+      "format": "password"
+    },
+    "created_at": {
+      "type": "DateTime",
+      "name": "Készítve",
+      "visible": true,
+      "disabled": true
+    },
+    "modified_at": {
+      "type": "DateTime",
+      "name": "Módosítva",
+      "visible": true,
+      "disabled": true
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Seo",
+  "icon": "fa fa-search",
+  "action": "list",
+  "author": "Pagony",
+  "required": true,
+  "fields": {
+    "url": {
+      "type": "Input",
+      "translate": true,
+      "name": "Url",
+      "id": true,
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "code": {
+      "type": "Number",
+      "name": "Státusz kód"
+    },
+    "title": {
+      "type": "Input",
+      "translate": true,
+      "name": "Title",
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "description": {
+      "type": "Textarea",
+      "translate": true,
+      "name": "Leírás",
+      "visible": [
+        true,
+        true
+      ]
+    },
+    "meta": {
+      "type": "Input",
+      "name": "Meta",
+      "visible": [
+        false,
+        false
+      ]
+    },
+    "seo": {
+      "type": "Model",
+      "name": "Seo",
+      "model": {
+        "foreign": "url",
+        "display": {
+          "list": "url",
+          "block": "url"
+        }
+      }
+    },
+    "created_at": {
+      "type": "DateTime",
+      "name": "Készítve",
+      "visible": true,
+      "disabled": true
+    },
+    "modified_at": {
+      "type": "DateTime",
+      "name": "Módosítva",
+      "visible": true,
+      "disabled": true
+    }
+  }
+}

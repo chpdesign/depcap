@@ -1,0 +1,19 @@
+{
+  "db": {
+    "host": "localhost",
+    "user": "chip",
+    "password": "",
+    "database": "depcap",
+    "migration": "db"
+  },
+  "smtp": {
+    "host": "smtp.mailtrap.io",
+    "port": 465,
+    "user": "4343fb77b62632",
+    "password": "c8f1616584881d"
+  },
+  "langdir": false,
+  "langdir_redirect": false,
+  "namespace": false,
+  "force_https": false
+}

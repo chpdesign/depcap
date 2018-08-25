@@ -1,0 +1,24 @@
+{
+  "name": "Modulok",
+  "icon": "fa fa-archive",
+  "required": true,
+  "fields": {
+    "id": {
+      "type": "Input",
+      "name": "Id",
+      "id": true
+    },
+    "created_at": {
+      "type": "DateTime",
+      "name": "Készítve",
+      "visible": true,
+      "disabled": true
+    },
+    "modified_at": {
+      "type": "DateTime",
+      "name": "Módosítva",
+      "visible": true,
+      "disabled": true
+    }
+  }
+}

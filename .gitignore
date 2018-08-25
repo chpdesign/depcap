@@ -1,0 +1,47 @@
+# Eclipse meta fájlok kivétele a projektből:
+.settings
+.buildpath
+.project
+
+# PHPStorm projekt meta fájlok:
+.idea/*
+
+# NetBeans projekt meta fájlok:
+nbproject/*
+
+# full files directory:
+files/*
+
+# temp directories:
+*/temp/*
+temp/*
+
+# test directory
+test/*
+
+# cache directory:
+cache/*
+
+# Mysql Workbench backup file:
+*.mwb.bak
+
+# log files
+*/log/*
+log/*
+
+.htaccess
+
+TODO.php
+
+error_log
+
+# LibreOffice, vagy OpenOffice fájlok:
+.~lock.*
+
+vendor/
+
+sitemap.xml
+
+# updates directory:
+updates/*
+composer.lock
