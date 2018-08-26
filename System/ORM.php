@@ -12,7 +12,7 @@ use ComposerPack\System\ORM\Fields\Field;
  * @version 0.2
  *
  */
-abstract class ORM extends \ArrayIterator
+abstract class ORM extends \ArrayIterator implements \JsonSerializable, \Serializable
 {
 
     /**
@@ -85,6 +85,7 @@ abstract class ORM extends \ArrayIterator
                 $value = floatval($value);
             }
         }
+        ksort($this->primary_key);
         return $this->primary_key;
     }
 
@@ -97,7 +98,26 @@ abstract class ORM extends \ArrayIterator
         return $this->default_primary_key;
     }
 
-    public function __construct()
+    public function __sleep()
+    {
+        $this->getPrimaryKeys();
+        return ["primary_key"];
+    }
+
+    public function __wakeup()
+    {
+        $this->init($this->primary_key);
+    }
+
+    public function serialize() {
+        return json_encode($this->getPrimaryKeys());
+    }
+
+    public function unserialize($data) {
+        $this->init(json_decode($data, true));
+    }
+
+    protected function init()
     {
         if(is_null($this->table))
         {
@@ -286,6 +306,15 @@ abstract class ORM extends \ArrayIterator
         $this->tags = array_merge($this->tags, $fields);
 
         return $this;
+    }
+
+    /**
+     * ORM constructor.
+     * @throws \Exception
+     */
+    public function __construct()
+    {
+        call_user_func_array([$this, "init"], func_get_args());
     }
 
     public function foreign_keys()
@@ -1322,12 +1351,24 @@ abstract class ORM extends \ArrayIterator
      */
     public function __toString()
     {
-        return (string) json_encode($this->tags);
+        return (string) json_encode($this->jsonSerialize());
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 
     public function toArray()
     {
-        return $this->tags;
+        $array = [];
+        foreach ($this as $key => $tag) {
+            $array[$key] = $tag;
+            if($array[$key] instanceof self) {
+                $array[$key] = $array[$key]->toArray();
+            }
+        }
+        return $array;
     }
 
     /**

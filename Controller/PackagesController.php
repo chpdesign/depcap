@@ -2,7 +2,7 @@
 
 namespace ComposerPack\Controller;
 
-use ComposerPack\Module\Package\Branch;
+use ComposerPack\Module\Package\Label;
 use ComposerPack\Module\Package\Repository;
 use ComposerPack\System\Settings;
 
@@ -15,15 +15,16 @@ class PackagesController extends DefaultController
         $repos["packages"] = [];
         $repos["notify"] = Settings::get("base_link")."downloads/%package%";
         $repos["notify-batch"] = Settings::get("base_link")."downloads/";
-        $repos["providers-url"] = Settings::get("base_link")."p/%package%-%hash%.json";
+        $repos["providers-url"] = Settings::get("base_link")."p/%package%$%hash%.json";
         $repos["search"] = Settings::get("base_link")."search.json?q=%query%&type=%type%";
         $repos["provider-includes"] = [];
-        $repos["provider-includes"]["p/provider-%hash%.json"] = [];
-        $repos["provider-includes"]["p/provider-%hash%.json"]["sha256"] = "";
+        $repos["provider-includes"]["p/provider$%hash%.json"] = [];
+        $repos["provider-includes"]["p/provider$%hash%.json"]["sha256"] = "";
         $repositories = new Repository();
         $repositories = $repositories->result();
         $providers = $this->repository($repositories);
-        $repos["provider-includes"]["p/provider-%hash%.json"]["sha256"] = hash("sha256", json_encode($providers));
+        $repos["provider-includes"]["p/provider$%hash%.json"]["sha256"] = hash("sha256", json_encode($providers));
+        header('Content-Type: application/json');
         echo json_encode($repos);
         die();
     }
@@ -33,6 +34,7 @@ class PackagesController extends DefaultController
         $repositories = new Repository();
         $repositories = $repositories->result();
         $providers = $this->repository($repositories);
+        header('Content-Type: application/json');
         echo json_encode($providers);
         die();
     }
@@ -40,9 +42,10 @@ class PackagesController extends DefaultController
     public function actionRepository($author, $repository, $hash)
     {
         $repo = new Repository($author, $repository);
-        $branches = new Branch();
-        $branches = $branches->where("author", $repo["author"])->where("repo", $repo["repo"])->result();
-        $packages = $this->package($repo, $branches);
+        $labels = new Label();
+        $labels = $labels->where("author", $repo["author"])->where("repo", $repo["repo"])->result();
+        $packages = $this->package($repo, $labels);
+        header('Content-Type: application/json');
         echo json_encode($packages);
         die();
     }
@@ -51,24 +54,29 @@ class PackagesController extends DefaultController
     {
         $providers = ["providers" => []];
         foreach($repositories as $repo) {
-            $branches = new Branch();
-            $branches = $branches->where("author", $repo["author"])->where("repo", $repo["repo"])->result();
-            $packages = $this->package($repo, $branches);
+            $labels = new Label();
+            $labels = $labels->where("author", $repo["author"])->where("repo", $repo["repo"])->result();
+            $packages = $this->package($repo, $labels);
             $providers["providers"][$repo.""] = ["sha256" => hash("sha256", json_encode($packages))];
         }
         return $providers;
     }
 
-    function package($repository, $branches)
+    function package($repository, $labels)
     {
         $packages = ["packages" => []];
-        foreach ($branches as $branch) {
-            $packages["packages"][$repository.""] = [
-                $branch."" => [
-                    "name" => $repository."",
-                    "description" => "",
-                    "uid" => 1,
-                    "version" => $branch.""
+        $packages["packages"][$repository.""] = [];
+        foreach ($labels as $label) {
+            $packages["packages"][$repository.""][$label.""] = [
+                "name" => $repository."",
+                "description" => "",
+                "uid" => $label["uid"],
+                "version" => $label."",
+                "source" => [
+                    "type" => $label["type"],
+                    "url" => $label["url"],
+                    "reference" => $label["reference"],
+                    "shasum" => ""
                 ]
             ];
         }

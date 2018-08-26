@@ -1,0 +1,184 @@
+html{
+    position: relative;
+    height: 100%;
+}
+body{
+    color: #333432;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+    height: 100%;
+}
+textarea {
+    min-height: 32px;
+    min-width: 200px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 700;
+    color: #333432;
+}
+h1 span,h2 span,h3 span,h4 span,h5 span,h6 span{
+    font-weight: 300;
+}
+.form-control{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+a{
+    color: #4FB355;
+}
+a:hover{
+    color: #4BA952;
+}
+
+.btn.btn-site{
+    background: #4FB355;
+    color: #fff;
+}
+.btn.btn-site:hover,
+.btn.btn-site:active,
+.btn.btn-site:focus {
+    color: #4BA952;
+    color: #fff;
+}
+
+.bootstrap-datetimepicker-widget{
+    background: #fff;
+    position: relative;
+    z-index: 5;
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%);
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.top:before,
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before,
+.bootstrap-datetimepicker-widget.dropdown-menu.left:before,
+.bootstrap-datetimepicker-widget.dropdown-menu.right:before,
+
+.bootstrap-datetimepicker-widget.dropdown-menu.top:after,
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after,
+.bootstrap-datetimepicker-widget.dropdown-menu.left:after,
+.bootstrap-datetimepicker-widget.dropdown-menu.right:after{
+    display: none;
+}
+body:after{
+    z-index: 2;
+    position: fixed;
+    content: '';
+    pointer-events: none;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    background: rgba(0,0,0,0);
+}
+body.dim:after{
+    pointer-events: inherit;
+    width: auto;
+    height: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+}
+
+.timesheet.table-hover tbody tr:hover{
+    background: #4FB355;
+    color: #fff;
+}
+.timesheet .fht-cell .form-control{
+    border-left: none;
+    border-right: none;
+    margin: 0px;
+}
+.timesheet .filter-control{
+    margin: 0px;
+}
+.timesheet textarea:focus,
+.timesheet select:focus,
+.timesheet input:focus,
+.timesheet .filter-control textarea:focus,
+.timesheet .filter-control select:focus,
+.timesheet .filter-control input:focus{
+    position: relative;
+    z-index: 3;
+}
+.pace .pace-progress{
+
+}
+.timesheet.table:not(.table-condensed),
+.timesheet.table:not(.table-condensed) > tbody > tr > th,
+.timesheet.table:not(.table-condensed) > tfoot > tr > th,
+.timesheet.table:not(.table-condensed) > thead > tr > td,
+.timesheet.table:not(.table-condensed) > tbody > tr > td,
+.timesheet.table:not(.table-condensed) > tfoot > tr > td{
+    padding: 0px;
+}
+.timesheet.table:not(.table-condensed) > tbody > tr > th select,
+.timesheet.table:not(.table-condensed) > tfoot > tr > th select,
+.timesheet.table:not(.table-condensed) > thead > tr > td select,
+.timesheet.table:not(.table-condensed) > tbody > tr > td select,
+.timesheet.table:not(.table-condensed) > tfoot > tr > td select,
+
+.timesheet.table:not(.table-condensed) > tbody > tr > th textarea,
+.timesheet.table:not(.table-condensed) > tfoot > tr > th textarea,
+.timesheet.table:not(.table-condensed) > thead > tr > td textarea,
+.timesheet.table:not(.table-condensed) > tbody > tr > td textarea,
+.timesheet.table:not(.table-condensed) > tfoot > tr > td textarea,
+
+.timesheet.table:not(.table-condensed) > tbody > tr > th input,
+.timesheet.table:not(.table-condensed) > tfoot > tr > th input,
+.timesheet.table:not(.table-condensed) > thead > tr > td input,
+.timesheet.table:not(.table-condensed) > tbody > tr > td input,
+.timesheet.table:not(.table-condensed) > tfoot > tr > td input
+{
+    background: transparent;
+    border: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+[data-toggle="calendar"] i.edit, [data-toggle="calendar"] i.delete,
+[data-toggle="table"] i.edit, [data-toggle="table"] i.delete {
+    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.new, .edit, .remove {
+    cursor: pointer;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+textarea.form-control {
+    height: 32px;
+}
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover{
+    background: #4FB355;
+}
+.bootstrap-datetimepicker-widget table td.today:before{
+    border-bottom-color: #4FB355;
+}
+.bootstrap-datetimepicker-widget table td span.active{
+    background-color: #4FB355;
+}
+.btn-social.disabled > :first-child{
+    border-right: none;
+}
+
+.picker-dialog-bg{
+    z-index: 9998 !important;
+}
+.picker-dialog{
+    z-index: 9999 !important;
+}

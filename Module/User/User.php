@@ -57,4 +57,16 @@ class User extends ORM{
         return true;
     }
 
+    public function getProfileImage()
+    {
+        if(empty($this['google_picture']))
+        {
+            return "https://www.gravatar.com/avatar/".md5($this['email'])."?d=mm";
+        }
+        else
+        {
+            return $this['google_picture'];
+        }
+    }
+
 }

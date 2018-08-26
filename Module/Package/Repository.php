@@ -2,7 +2,6 @@
 
 namespace ComposerPack\Module\Package;
 
-use ComposerPack\Module\Language\Language;
 use ComposerPack\System\ORM;
 
 class Repository extends ORM

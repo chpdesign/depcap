@@ -401,7 +401,7 @@ function get_space($dir)
 	$used = get_dir_size($dir);
 	return array('size' => $size, 'used' => $used, 'free' => $size-$used);
 }
-function get_formated_size($bytes)
+function get_formated_size($bytes, $precision = 2)
 {
 	$units = array( 'B', 'KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB' );
 	$pow = floor(($bytes ? log($bytes) : 0) / log(1024));

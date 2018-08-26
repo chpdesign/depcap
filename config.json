@@ -1,4 +1,5 @@
 {
+  "project_name": "DepCap",
   "db": {
     "host": "localhost",
     "user": "chip",

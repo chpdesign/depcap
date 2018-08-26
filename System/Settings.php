@@ -58,8 +58,8 @@ class Settings implements \ArrayAccess
             $urls['^'.$seourl[Language::language()].'$'] = 'index/contact';
         }
         $urls['^packages.json$'] = 'packages/index';
-        $urls['^p\/provider-([^\.]*).json$'] = 'packages/provider/$1';
-        $urls['^p\/(.*)\/(.*)-([^\.]*).json$'] = 'packages/repository/$1/$2/$3';
+        $urls['^p\/provider\$([^\.]*).json$'] = 'packages/provider/$1';
+        $urls['^p\/(.*)\/(.*)\$([^\.]*).json$'] = 'packages/repository/$1/$2/$3';
         return $urls;
     }
 

@@ -92,7 +92,7 @@ class Run
 
         $dirname = dirname($_SERVER['SCRIPT_NAME']);
         if($dirname[strlen($dirname)-1] != '/') $dirname .= '/';
-        Controller::$ACTIVE_URL = $URL = substr($_SERVER['REQUEST_URI'], strpos( $_SERVER['REQUEST_URI'] , $dirname ) + strlen($dirname) );
+        Controller::$ACTIVE_URL = $URL = urldecode(substr($_SERVER['REQUEST_URI'], strpos( $_SERVER['REQUEST_URI'] , $dirname ) + strlen($dirname) ));
 
         if($HOST_CHANGED)
         {

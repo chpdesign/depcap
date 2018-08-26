@@ -36,7 +36,7 @@ class Language extends ORM
 
     public static function language($language = null)
     {
-        return "en";
+        //return "en";
         if(is_null($language)) {
             $language = self::getDefaultLanguage();
             return Session::get('language', $language);
@@ -351,7 +351,9 @@ class Language extends ORM
      */
     public static function get_langs()
     {
-        self::initialize();
+        //self::initialize();
+        if(self::$self == null)
+            self::$self = new Language();
 
         //$langs_query = self::$self->connection->query("SELECT * FROM `".self::__table()."` LIMIT 1");
         $count_langs = self::$self->connection->columns(self::$self->table);
@@ -376,10 +378,12 @@ class Language extends ORM
      * @return string
      */
     public static function getDefaultLanguage() {
-        if (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"]))
-            return substr(self::parseDefaultLanguage($_SERVER["HTTP_ACCEPT_LANGUAGE"]),0,2);
-        else
-            return reset(self::get_langs());
+        if (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
+            return substr(self::parseDefaultLanguage($_SERVER["HTTP_ACCEPT_LANGUAGE"]), 0, 2);
+        } else {
+            $langs = self::get_langs();
+            return reset($langs);
+        }
     }
 
     private static function parseDefaultLanguage($http_accept) {
